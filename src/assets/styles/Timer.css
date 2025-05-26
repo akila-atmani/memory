@@ -1,0 +1,25 @@
+.timer {
+  background-color: #f4f4f9; /* Fond clair */
+  color: #4a90e2; /* Bleu doux */
+  font-family: 'Arial', sans-serif;
+  font-size: 2.5rem;
+  padding: 0.8rem 1.5rem;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(74, 144, 226, 0.4);
+  margin: 20px auto;
+  width: fit-content;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.timer.paused {
+  color: #b0b0b0; /* Gris doux quand en pause */
+  box-shadow: 0 0 8px rgba(176, 176, 176, 0.3);
+}
+
+.timer:hover {
+  background-color: #e0e4ff;
+  transform: scale(1.05);
+}
+

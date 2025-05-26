@@ -1,0 +1,200 @@
+/* Reset de base */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  background: linear-gradient(to right, #fbc2eb, #a6c1ee); /* Dégradé pastel doux mais plus lumineux */
+  min-height: 100vh;
+  color: #444;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+}
+
+.app {
+  max-width: 800px;
+  width: 100%;
+  text-align: center;
+  background-color: #fff; /* Fond blanc pour un design propre et chic */
+  padding: 40px;
+  border-radius: 25px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1); /* Ombre douce mais plus marquée pour un look chic */
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: #5e4b8b; /* Un violet pastel plus soutenu */
+  margin-bottom: 30px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+button {
+  background-color: #f6a1c0; /* Rose clair vibrant */
+  color: #fff;
+  border: none;
+  padding: 12px 30px;
+  font-weight: bold;
+  font-size: 1.1rem;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: background 0.3s, transform 0.2s;
+  margin-top: 20px;
+}
+
+button:hover {
+  background-color: #f28ab2; /* Un rose plus soutenu au survol */
+  transform: scale(1.05); /* Agrandissement au survol */
+}
+
+button:focus {
+  outline: none;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.card {
+  width: 100%;
+  aspect-ratio: 1;
+  perspective: 1000px;
+  cursor: pointer;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Ombre douce mais subtile */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.1); /* Un léger effet de zoom pour l'interactivité */
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2); /* Ombre un peu plus marquée au survol */
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.5s ease;
+}
+
+.card.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  backface-visibility: hidden;
+}
+
+.card-front {
+  background-color: #ffd3e0; /* Rose pastel doux */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  color: #5e4b8b; /* Le même violet pour une touche chic */
+  font-weight: bold;
+  border: 3px solid #fff; /* Bordure blanche pour le contraste */
+}
+
+.card-back img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: 3px solid #fff;
+  border-radius: 12px;
+  transform: rotateY(180deg);
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Fond sombre pour contraster avec les éléments */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.modal.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-content {
+  background: #fff;
+  color: #5e4b8b;
+  padding: 40px;
+  border-radius: 20px;
+  text-align: center;
+  max-width: 500px;
+  width: 90%;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+  transform: translateY(20px);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  opacity: 0;
+}
+
+.modal.active .modal-content {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.modal-content h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #5e4b8b;
+}
+
+.modal-content p {
+  font-size: 1.2rem;
+  color: #7f8c8d;
+  margin-bottom: 30px;
+}
+
+.modal-content button {
+  padding: 12px 30px;
+  background-color: #f6a1c0; /* Rose pastel doux mais vibrant */
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.modal-content button:hover {
+  background-color: #f28ab2; /* Plus intense au survol */
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr); /* Adaptation à la taille des écrans plus petits */
+  }
+}
+
+@media (max-width: 480px) {
+  .grid {
+    grid-template-columns: 1fr; /* Une seule colonne pour les très petits écrans */
+  }
+}
+
