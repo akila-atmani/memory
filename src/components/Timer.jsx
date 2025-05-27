@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import '../assets/styles/Timer.css'; // Assure-toi que le chemin du fichier CSS est correct
+import '../assets/styles/Timer.css'; 
 
 
 function Timer({ isRunning, resetTrigger }) {
